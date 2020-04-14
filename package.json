@@ -1,0 +1,15 @@
+{
+  "name": "@mattersupply/github-actions",
+  "version": "1.0.0",
+  "description": "Common Github Actions",
+  "main": "index.js",
+  "repository": "git@github.com:mattersupply/github-actions.git",
+  "author": "@mattersupply.co",
+  "license": "UNLICENSED",
+  "private": false,
+  "dependencies": {
+    "@actions/core": "^1.2.3",
+    "@actions/github": "^2.1.1",
+    "aws-actions-configure-aws-credentials": "aws-actions/configure-aws-credentials"
+  }
+}
