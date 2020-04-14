@@ -5,10 +5,15 @@ jobs:
     runs-on: ubuntu-latest
     name: Testing
     steps:
-      - name: Run Env Action
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Hello world action step
+        uses: ./ # Uses an action in the root directory
         id: testaction
         uses: mattersupply/matter-env-action@v1
         with:
-          who-to-greet: "Mona the Octocat"
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
       - name: Get the output time
         run: echo "The time was ${{ steps.testaction.outputs.aws-account-id }}"
