@@ -5,7 +5,7 @@ const { getMatterConfig } = require('@mattersupply/cli/lib/config')
 
 const run = async function () {
   try {
-    console.log('Hello')
+    console.log('Hello There')
     // // `who-to-greet` input defined in action metadata file
     // const nameToGreet = core.getInput("who-to-greet");
     // console.log(`Hello ${nameToGreet}!`);
