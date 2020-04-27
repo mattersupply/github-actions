@@ -13,7 +13,7 @@ try {
 
   const payload = JSON.stringify(github.context.payload, undefined, 2)
   console.log(`The event payload: ${payload}`)
-  const awsResponse = aws()
+  const awsResponse = await aws()
 
   console.log('AWS: ', awsResponse)
   return {}
