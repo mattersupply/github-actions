@@ -2,7 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 const aws = require('aws-actions-configure-aws-credentials')
 
-try {
+const action = async function () {
   console.log('Hello')
   // // `who-to-greet` input defined in action metadata file
   // const nameToGreet = core.getInput("who-to-greet");
@@ -17,6 +17,10 @@ try {
 
   console.log('AWS: ', awsResponse)
   return {}
+}
+
+try {
+  return action()
 } catch (error) {
   core.setFailed(error.message)
 }
