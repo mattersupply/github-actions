@@ -1,9 +1,9 @@
-const core = require("@actions/core");
-const github = require("@actions/github");
-const aws = require("aws-actions-configure-aws-credentials");
+const core = require('@actions/core')
+const github = require('@actions/github')
+const aws = require('aws-actions-configure-aws-credentials')
 
 try {
-  console.log("Hello");
+  console.log('Hello')
   // // `who-to-greet` input defined in action metadata file
   // const nameToGreet = core.getInput("who-to-greet");
   // console.log(`Hello ${nameToGreet}!`);
@@ -11,11 +11,14 @@ try {
   // core.setOutput("time", time);
   // // Get the JSON webhook payload for the event that triggered the workflow
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
-  return aws();
+  const payload = JSON.stringify(github.context.payload, undefined, 2)
+  console.log(`The event payload: ${payload}`)
+  const awsResponse = aws()
+
+  console.log('AWS: ', awsResponse)
+  return {}
 } catch (error) {
-  core.setFailed(error.message);
+  core.setFailed(error.message)
 }
 
 // - name: Get yarn cache directory path
