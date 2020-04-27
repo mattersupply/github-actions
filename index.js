@@ -20,10 +20,10 @@ const run = async function () {
     // TODO: We'll need to clean up the @mattersupply/cli package to use our config here.
     const cfg = await getMatterConfig()
 
-    console.log('AWS: ', cfg, process.env, github)
+    console.log('AWS: ', cfg, process.env, github, github.context.ref)
 
     const branchNameMatches = github.context.ref.match(
-      /refs\/heads\/(<branch>.+)/
+      /^refs\/heads\/(<branch>.+)$/
     )
     const branchName = branchNameMatches
 
