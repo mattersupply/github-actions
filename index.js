@@ -21,6 +21,13 @@ const run = async function () {
     const cfg = await getMatterConfig()
 
     console.log('AWS: ', cfg, process.env, github)
+
+    const branchNameMatches = github.context.ref.match(
+      /ref\/heads\/(<branch>.+)/
+    )
+    const branchName = branchNameMatches.groups['branch']
+
+    console.log('Branch Name: ', branchName)
     // const gitRef = process.env.GITHUB_REF
 
     return {}
