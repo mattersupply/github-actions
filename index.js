@@ -26,8 +26,12 @@ const run = async function () {
       /^refs\/heads\/(?<branch>.+)$/
     )
     const branchName = branchNameMatches
+      ? branchNameMatches.groups['branch']
+      : null
 
-    console.log('Branch Name: ', branchName)
+    const tagNameMatches = github.context.ref.match(/^refs\/tags\/(?<tag>.+)$/)
+    const tagName = tagNameMatches ? tagNameMatches.groups['tag'] : null
+    console.log('Branch Name: ', branchName, 'Tag: ', tagName)
     // const gitRef = process.env.GITHUB_REF
 
     return {}
