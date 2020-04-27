@@ -1,31 +1,36 @@
 const core = require('@actions/core')
 const github = require('@actions/github')
 const aws = require('aws-actions-configure-aws-credentials')
+const { getMatterConfig } = require('@mattersupply/cli/lib/config')
 
-const action = async function () {
-  console.log('Hello')
-  // // `who-to-greet` input defined in action metadata file
-  // const nameToGreet = core.getInput("who-to-greet");
-  // console.log(`Hello ${nameToGreet}!`);
-  // const time = new Date().toTimeString();
-  // core.setOutput("time", time);
-  // // Get the JSON webhook payload for the event that triggered the workflow
+const run = async function () {
+  try {
+    console.log('Hello')
+    // // `who-to-greet` input defined in action metadata file
+    // const nameToGreet = core.getInput("who-to-greet");
+    // console.log(`Hello ${nameToGreet}!`);
+    // const time = new Date().toTimeString();
+    // core.setOutput("time", time);
+    // // Get the JSON webhook payload for the event that triggered the workflow
 
-  const payload = JSON.stringify(github.context.payload, undefined, 2)
-  console.log(`The event payload: ${payload}`)
-  const awsResponse = await aws()
+    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    console.log(`The event payload: ${payload}`)
+    const awsResponse = await aws()
 
-  // core.getState()
-  core.debug()
+    const cfg = await getMatterConfig()
 
-  console.log('AWS: ', core, process.env)
-  return {}
+    console.log('AWS: ', cfg, process.env)
+    return {}
+  } catch (error) {
+    core.setFailed(error.message)
+  }
 }
 
-try {
-  return action()
-} catch (error) {
-  core.setFailed(error.message)
+module.exports = run
+
+/* istanbul ignore next */
+if (require.main === module) {
+  run()
 }
 
 // - name: Get yarn cache directory path
