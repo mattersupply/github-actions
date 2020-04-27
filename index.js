@@ -23,7 +23,7 @@ const run = async function () {
     console.log('AWS: ', cfg, process.env, github, github.context.ref)
 
     const branchNameMatches = github.context.ref.match(
-      /^refs\/heads\/(<branch>.+)$/
+      /^refs\/heads\/(?<branch>.+)$/
     )
     const branchName = branchNameMatches
 
