@@ -12,14 +12,17 @@ const run = async function () {
     // const time = new Date().toTimeString();
     // core.setOutput("time", time);
     // // Get the JSON webhook payload for the event that triggered the workflow
-
     const payload = JSON.stringify(github.context.payload, undefined, 2)
-    console.log(`The event payload: ${payload}`)
-    const awsResponse = await aws()
 
+    // Setting up the AWS environment
+    await aws()
+
+    // TODO: We'll need to clean up the @mattersupply/cli package to use our config here.
     const cfg = await getMatterConfig()
 
-    console.log('AWS: ', cfg, process.env)
+    console.log('AWS: ', cfg, process.env, github)
+    // const gitRef = process.env.GITHUB_REF
+
     return {}
   } catch (error) {
     core.setFailed(error.message)
