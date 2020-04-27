@@ -18,7 +18,7 @@ const action = async function () {
   // core.getState()
   core.debug()
 
-  console.log('AWS: ', core)
+  console.log('AWS: ', core, process.env)
   return {}
 }
 
