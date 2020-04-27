@@ -15,6 +15,9 @@ const action = async function () {
   console.log(`The event payload: ${payload}`)
   const awsResponse = await aws()
 
+  // core.getState()
+  core.debug()
+
   console.log('AWS: ', awsResponse)
   return {}
 }
