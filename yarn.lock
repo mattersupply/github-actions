@@ -23,10 +23,10 @@
   dependencies:
     tunnel "0.0.6"
 
-"@mattersupply/cli@^0.0.1":
-  version "0.0.1"
-  resolved "https://npm.pkg.github.com/download/@mattersupply/cli/0.0.1/bbc8d1f4665865e8143dfe23391e40d6cbef1d11a62b618658ed55b50e8d790c#c0ed11e88d8c2e34158db6f319053a968f020261"
-  integrity sha512-SSgcZbAfznvRdsXOXMZosplAv59mBHTecommKRTAYASjTHMxXdS4Hh2wORb4lyV/xBWXqOpPdkUSBrUQTDn8Wg==
+"@mattersupply/cli@^0.0.2":
+  version "0.0.2"
+  resolved "https://npm.pkg.github.com/download/@mattersupply/cli/0.0.2/3af728b6f301ba787579a810856541afb243f52152e801de513e7ef47d8206c7#b6172113e2ddd9037fcfda554e1d061ec1be326f"
+  integrity sha512-nsHLJguMzO3eMUPqMSI8DaygheK4OvAopzYj4XAV87ukGBmTkOTsVGirNWeV+omFH9KS9KVW/KiPtIW0IeZE7g==
   dependencies:
     "@oclif/command" "^1"
     "@oclif/config" "^1"

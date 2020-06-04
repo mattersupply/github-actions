@@ -2,6 +2,7 @@ const core = require('@actions/core')
 const github = require('@actions/github')
 const aws = require('aws-actions-configure-aws-credentials')
 const { getMatterConfig } = require('@mattersupply/cli/lib/config')
+const { fetchValues } = require('@mattersupply/cli/lib/remote-config')
 const { kebabCase } = require('lodash')
 
 const getBuildIdentifier = function () {
